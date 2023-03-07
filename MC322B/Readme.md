@@ -3,6 +3,6 @@
 # **Aluno**
     Jose Eduardo Carlos Castilho
 # **RA**
-    RA:250394
+    250394
 # **Curso**
-    (Engenharia de Controle e Automação)
+    Engenharia de Controle e Automação
