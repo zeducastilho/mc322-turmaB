@@ -5,4 +5,4 @@
 # **RA**
     250394
 # **Curso**
-    Engenharia Controle e Automação
+    Engenharia de Controle e Automação
