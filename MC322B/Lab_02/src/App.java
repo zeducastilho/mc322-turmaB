@@ -2,7 +2,6 @@ import classes.Cliente;
 import classes.Sinistro;
 import classes.Veiculo;
 import classes.Seguradora;
-import classes.Sinistro;
 
 public class App {
     public static void main(String[] args) throws Exception {
