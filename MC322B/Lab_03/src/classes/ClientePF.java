@@ -31,6 +31,9 @@ public class ClientePF extends Cliente{
         this.classeEconomica = classeEconomica;
     }
 
+    public String getTipo(){    // será utilizada no método listaClientes da classe seguradoras
+        return "PF";
+    }
     public String getCPF() {
         return CPF;
     }
@@ -137,11 +140,14 @@ public class ClientePF extends Cliente{
     @Override
     public String toString() {
         String retorno = super.toString();
-        retorno += ", Informações Pessoa Física: [CPF: " + CPF + ", gênero: " + genero + ", data de emissão da licença: " + formataData.format(dataLicenca) + ", educação: "
-                + educacao + ", data de nascimento: " + formataData.format(dataNascimento) + ", classe econômica: " + classeEconomica + "]";
+        retorno += "\n    CPF: " + CPF + "\n    gênero: " + genero + "\n    data de emissão da licença: " + formataData.format(dataLicenca) + "\n    educação: "
+                + educacao + "\n    data de nascimento: " + formataData.format(dataNascimento) + "\n    classe econômica: " + classeEconomica + "\n    }";
         return retorno;
     }
-   
+   @Override
+   public boolean validaCliente(){ //Metodo sobrescrito utilizado para validar o cliente antes de inseri-lo na seguradora
+    return verificaCPF();
+}
 
 }
 

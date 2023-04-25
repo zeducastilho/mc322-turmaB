@@ -44,7 +44,7 @@ public class Veiculo{
 	public void setAnoFabricacao(int anoFabricacao) {
 		this.anoFabricacao = anoFabricacao;
 	}
-	
+	@Override
 	public String toString() {
 		return "[placa: " + placa + ", marca: " + marca + ", modelo: " + modelo + ", ano de fabricação: " + anoFabricacao + "]";
 	}

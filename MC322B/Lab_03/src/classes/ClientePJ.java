@@ -21,6 +21,10 @@ public class ClientePJ extends Cliente{
 
     // getters and setters
     
+    public String getTipo(){    // será utilizada no método listaClientes da classe seguradoras
+        return "PJ";
+    }
+
     public String getCNPJ() {
         return CNPJ;
     }
@@ -108,7 +112,11 @@ public class ClientePJ extends Cliente{
     @Override
     public String toString() {
         String retorno = super.toString();
-        retorno += ", Informações Cliente PJ: [CNPJ: " + CNPJ + ", dataFundacao: " + formataData.format(dataFundacao) + "]";
+        retorno += "\n    CNPJ: " + CNPJ + "\n    dataFundacao: " + formataData.format(dataFundacao) + "\n    }";
         return retorno;
     }
+    @Override
+    public boolean validaCliente(){ //Metodo sobrescrito utilizado para validar o cliente antes de inseri-lo na seguradora
+     return verificaCNPJ();
+ }
 }

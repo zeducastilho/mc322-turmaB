@@ -22,6 +22,9 @@ public class Cliente {
 
     //getters e setters
 
+    public String getTipo(){    // será utilizada no método listaClientes da classe seguradoras
+        return "All";
+    }
     public String getNome() {
 		return nome;
 	}
@@ -44,22 +47,22 @@ public class Cliente {
     }
 
     // to String
-
+    @Override
     public String toString() {
-        String retorno = "[Nome: " + nome + ", endereco: " + endereco + ", Lista de Veiculos: ";
+        String retorno = "   {Nome: " + nome + "\n    endereco: " + endereco + "\n    Lista de Veiculos:\n        ";
         for(int i = 0; i<(listaVeiculos.size() - 1); i++){
-            retorno += listaVeiculos.get(i).toString() + ", ";
+            retorno += listaVeiculos.get(i).toString() + "\n        ";
         }
         if(listaVeiculos.size()>0){
-            retorno += listaVeiculos.get(listaVeiculos.size()-1).toString() + "]";
+            retorno += listaVeiculos.get(listaVeiculos.size()-1).toString();
         }
         else{
-            retorno += "Sem Veículos Cadastrados]";
+            retorno += "Sem Veículos Cadastrados";
         }
-        
-        
         return retorno;
     }
-
+    public boolean validaCliente(){ //Metodo a ser sobrescrito pelas classes clientePF e ClientePJ, será utilizado para validar o cliente antes de inseri-lo na seguradora
+        return true;
+    }
     
 }
