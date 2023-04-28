@@ -11,67 +11,67 @@ public class App {
     public static void main(String[] args) throws Exception {
         
         //Instanciando veículos
-        Veiculo Veiculo1 = new Veiculo("DWG-8678", "Chevrolet", "Classic", 2005);
-        Veiculo Veiculo2 = new Veiculo("FTW8T58", "Honda", "Civic", 2020);
-        Veiculo Veiculo3 = new Veiculo("GGG-8888", "Toyota", "Etios", 2020);
+        Veiculo veiculo1 = new Veiculo("DWG-8678", "Chevrolet", "Classic", 2005);
+        Veiculo veiculo2 = new Veiculo("FTW8T58", "Honda", "Civic", 2020);
+        Veiculo veiculo3 = new Veiculo("GGG-8888", "Toyota", "Etios", 2020);
 
-        System.out.println(Veiculo2.toString());
+        System.out.println(veiculo2.toString());
         
         //Instanciando a seguradora        
         
-        Seguradora Seguradora1 = new Seguradora("Azul Seguros", "(19)98752-6322", "comercial@azulseguros.br", "Av. Barão de Itapura, 432, Campinas-SP");
+        Seguradora seguradora1 = new Seguradora("Azul Seguros", "(19)98752-6322", "comercial@azulseguros.br", "Av. Barão de Itapura, 432, Campinas-SP");
         
         //Tentando gerar um sinistro de um cliente não adicionado à seguradora
             
-        Seguradora1.gerarSinistro("22/04/2022", "Rua Buarque de Macedo, 1500, Campinas-SP", "GGG-7777","Joao");
+        seguradora1.gerarSinistro("22/04/2022", "Rua Buarque de Macedo, 1500, Campinas-SP", "GGG-7777","Joao");
                 
         //Testando os metodos listar antes de adicionar elementos
-        Seguradora1.listarCLientes("All");
-        Seguradora1.listarSinistros();
+        seguradora1.listarCLientes("All");
+        seguradora1.listarSinistros();
 
         //Instanciando Clientes:
-        ClientePF Cliente1PF = new ClientePF("Jose", "Rua Ficticia, 129, Campinas", "338.547.318-76", "Masculino", "15/06/2022", "Ensino Médio Completo", "01/08/2001", "Media");
-        System.out.println("CPF Cliente1PF é valido: " + Cliente1PF.verificaCPF());
+        ClientePF cliente1PF = new ClientePF("Jose", "Rua Ficticia, 129, Campinas", "338.547.318-76", "Masculino", "15/06/2022", "Ensino Médio Completo", "01/08/2001", "Media");
+        System.out.println("CPF cliente1PF é valido: " + cliente1PF.verificaCPF());
         System.out.println("Imprimindo o to String antes de cadastrar veículos");
-        System.out.println(Cliente1PF.toString());
-        Cliente1PF.adicionaVeiculo(Veiculo1);
-        Cliente1PF.adicionaVeiculo(Veiculo2);
+        System.out.println(cliente1PF.toString());
+        cliente1PF.adicionaVeiculo(veiculo1);
+        cliente1PF.adicionaVeiculo(veiculo2);
         System.out.println("Veículos Cadastrados");
-        System.out.println(Cliente1PF.toString());
+        System.out.println(cliente1PF.toString());
 
-        ClientePJ Cliente1PJ = new ClientePJ("Mercado do Zé", "Rua Buarque de Macedo, 23", "53.559.156/0001-73", "21/05/2012");
-        System.out.println("Validando CNPJ Cliente1PJ: " + Cliente1PJ.verificaCNPJ());
-        Cliente1PJ.adicionaVeiculo(Veiculo3);
-        System.out.println(Cliente1PJ.toString());
+        ClientePJ cliente1PJ = new ClientePJ("Mercado do Zé", "Rua Buarque de Macedo, 23", "53.559.156/0001-73", "21/05/2012");
+        System.out.println("Validando CNPJ cliente1PJ: " + cliente1PJ.verificaCNPJ());
+        cliente1PJ.adicionaVeiculo(veiculo3);
+        System.out.println(cliente1PJ.toString());
 
-        ClientePJ Cliente2PJ = new ClientePJ("Concessionária Autos", "Avenida João Jorge, 525, Campinas-SP", "67.966.374/0001-37", "21/05/2003");
+        ClientePJ cliente2PJ = new ClientePJ("Concessionária Autos", "Avenida João Jorge, 525, Campinas-SP", "67.966.374/0001-37", "21/05/2003");
         
         //Adicionando Clientes à seguradora:
-        Seguradora1.cadastrarCliente(Cliente1PF);
-        Seguradora1.cadastrarCliente(Cliente1PJ);
-        Seguradora1.cadastrarCliente(Cliente1PF); // tentando cadastrar um cliente repetido
-        Seguradora1.removeCLiente(Cliente2PJ); // tentando remover um cliente que ainda não foi adicionado
-        Seguradora1.cadastrarCliente(Cliente2PJ);
+        seguradora1.cadastrarCliente(cliente1PF);
+        seguradora1.cadastrarCliente(cliente1PJ);
+        seguradora1.cadastrarCliente(cliente1PF); // tentando cadastrar um cliente repetido
+        seguradora1.removeCLiente(cliente2PJ); // tentando remover um cliente que ainda não foi adicionado
+        seguradora1.cadastrarCliente(cliente2PJ);
         // tentando cadastrar cliente com documento inválido
-        Seguradora1.cadastrarCliente(new ClientePJ("Concessionária AutoMoveis", "Avenida João Jorge, 525, Campinas-SP", "68.966.374/0001-37", "21/05/2003"));
+        seguradora1.cadastrarCliente(new ClientePJ("Concessionária AutoMoveis", "Avenida João Jorge, 525, Campinas-SP", "68.966.374/0001-37", "21/05/2003"));
         
         System.out.println("Imprimindo todos os clientes");
-        Seguradora1.listarCLientes("All");
+        seguradora1.listarCLientes("All");
         System.out.println("Imprimindo os clientes PF");
-        Seguradora1.listarCLientes("PF");
+        seguradora1.listarCLientes("PF");
         System.out.println("Imprimindo os clientes PJ");
-        Seguradora1.listarCLientes("PJ");
+        seguradora1.listarCLientes("PJ");
         
         //Testando classe sinistros
-        Sinistro Sinistro1 = new Sinistro("21/05/2022", "Av Dr Romeu Tortma, 500",Seguradora1, Veiculo2, Cliente1PJ);
-        System.out.println(Sinistro1.toString());
+        Sinistro sinistro1 = new Sinistro("21/05/2022", "Av Dr Romeu Tortma, 500",seguradora1, veiculo2, cliente1PJ);
+        System.out.println(sinistro1.toString());
 
         //Testando metodo gerar Sinistros
 
-        Seguradora1.gerarSinistro("22/04/2022", "Rua Buarque de Macedo, 1500, Campinas-SP", "GGG-7777","Jose"); //Tentando gerar um sinistro para um veiculo que o cliente nao tem cadastrado
-        Seguradora1.gerarSinistro("21/05/2022", "Av Dr Romeu Tortma, 500", "DWG-8678", "Jose");
-        Seguradora1.gerarSinistro("22/04/2022", "Rua Buarque de Macedo, 1500, Campinas-SP", "GGG-8888","Mercado do Zé");
-        Seguradora1.listarSinistros();
+        seguradora1.gerarSinistro("22/04/2022", "Rua Buarque de Macedo, 1500, Campinas-SP", "GGG-7777","Jose"); //Tentando gerar um sinistro para um veiculo que o cliente nao tem cadastrado
+        seguradora1.gerarSinistro("21/05/2022", "Av Dr Romeu Tortma, 500", "DWG-8678", "Jose");
+        seguradora1.gerarSinistro("22/04/2022", "Rua Buarque de Macedo, 1500, Campinas-SP", "GGG-8888","Mercado do Zé");
+        seguradora1.listarSinistros();
 
         //Menu Iterativo
         
@@ -84,7 +84,7 @@ public class App {
             case 0:
                 break;
             case 1:
-                Seguradora1.listarSinistros();
+                seguradora1.listarSinistros();
                 break;
             case 2:
                 System.out.println("Digite o nome do Cliente como consta no Cadastro");
@@ -97,7 +97,7 @@ public class App {
                 String data = scan.next();
                 
            
-                Seguradora1.gerarSinistro(data, endereco, placa, nome);
+                seguradora1.gerarSinistro(data, endereco, placa, nome);
                 break;
             
             case 3:
@@ -116,15 +116,13 @@ public class App {
                         break;
                 
                 }
-                Seguradora1.listarCLientes(tipoCliente);
+                seguradora1.listarCLientes(tipoCliente);
                 break;
         }
 
         }while (comando!=0);
         scan.close();
-
-    
-    
+        scan1.close();   
     
     }
 }
